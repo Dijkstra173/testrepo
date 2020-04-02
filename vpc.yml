@@ -1,0 +1,23 @@
+---
+- hosts: SW
+  gather_facts: no
+
+- name: vpc enabled
+  nxos_feature:
+    feature: vpc
+    state: enabled
+
+- name: lacp enabled
+  nxos_feature:
+    feature: lacp
+    state: enabled
+
+name: configure VPC domain
+  nxos_vpc:
+    domain: 100
+    role_priority: 1000
+    system_priority: 2000
+    pkl_dest: 192.168.100.4
+    pkl_src: 172.31.1.100
+    peer_gw: false
+    auto_recovery: true
