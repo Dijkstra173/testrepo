@@ -1,6 +1,10 @@
----
+  ---
+- hosts: SW
+  gather_facts: no
 
-- name: configure VPC domain
+  tasks: 
+  
+  - name: configure VPC domain
   nxos_vpc:
     domain: 100
     role_priority: 1000
@@ -9,3 +13,4 @@
     pkl_src: 172.31.1.100
     peer_gw: false
     auto_recovery: true
+    
