@@ -10,11 +10,11 @@
       feature: vpc
       state: enabled
   
-  - name: Enale feature LACAP
+  - name: Enable feature VPC
     nxos_feature:
-    feature: lacp
-    state: enable
-  
+      feature: lacp
+      state: enabled
+
   - name: VPC configuration
     nxos_vpc:
     domain: 100
