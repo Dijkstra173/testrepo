@@ -15,7 +15,7 @@
     feature: lacp
     state: enable
   
-  -name: VPC configuration
+  - name: VPC configuration
     nxos_vpc:
     domain: 100
     role_priority: 1000
