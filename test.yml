@@ -6,6 +6,6 @@
   tasks: 
   
   - name: test
-    ios_config:
-      lines:
-        - hostname toto
+    nxos_feature:
+      feature: vpc
+      state: enabled
