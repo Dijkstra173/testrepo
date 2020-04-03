@@ -1,9 +1,15 @@
 ---
 - hosts: SW
   gather_facts: no
-
+  
+  vars_files:
+    - var.yml
  
   tasks: 
+  
+  - name: test Var
+    debug:
+      msg: "{{ loris }}"
   
   - name: Enable feature VPC
     nxos_feature:
