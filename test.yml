@@ -30,12 +30,12 @@
       peer_link: true
 
   - name: Enable Jumbo 1/2
-    ios_config:
+    nxos_config:
       lines:
         - mtu 9216
-      parents: 
-        - policy-map type network-qos jumbo
-        - class type network-qos class-default
+      parents: class type network-qos class-default
+      before: policy-map type network-qos jumbo
+        
 
 
 # Configuration SW primaire
