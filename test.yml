@@ -35,6 +35,15 @@
       peer_gw: false
       auto_recovery: true
 
+  - name: Merge provided configuration with device configuration.
+    nxos_lag_interfaces:
+      config:
+        - name: port-channel100
+          members:
+            - member: Ethernet1/5
+            - member: Ethernet1/6
+
+
   - name: Wr Mem
     nxos_command:
       commands: copy running-config startup-config
