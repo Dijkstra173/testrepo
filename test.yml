@@ -23,6 +23,12 @@
     nxos_linkagg:
       aggregate:
         - { group: 100 }
+  
+  - name: Enable PeerLink Po
+    nxos_vpc_interface:
+      portchannel: 100
+      vpc: 100
+      peer_link: yes
 
 # Configuration SW primaire
 - hosts: "{{ swprimary }}"

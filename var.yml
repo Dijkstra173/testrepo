@@ -4,9 +4,9 @@ swprimary: 172.31.1.100
 swsecondary: 172.31.1.101
 
 #Interface PeerLink Sw Primaire
-int1P : Eth1/5
-int2P : Eth1/6
+int1P : Eth1/4
+int2P : Eth1/5
 
 #Interface PeerLink Sw Primaire
-int1S : Eth1/5
+int1S : Eth1/4
 int2S : Eth1/6
