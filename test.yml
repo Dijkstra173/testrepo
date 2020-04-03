@@ -38,7 +38,10 @@
   - name: CreatePortGroup
     nxos_linkagg:
       groupe: 100
-      state: present
+      mode: active
+      members:
+        - Eth1/5
+        - Eth1/6
 
 # Configuration SW Secondary
 - hosts: "{{ swsecondary }}"
