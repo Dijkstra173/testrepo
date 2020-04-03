@@ -28,7 +28,7 @@
     nxos_vpc_interface:
       portchannel: 100
       vpc: 100
-      peer_link: yes
+      peer_link: true
 
 # Configuration SW primaire
 - hosts: "{{ swprimary }}"
