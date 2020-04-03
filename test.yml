@@ -34,7 +34,7 @@
       lines:
         - class type network-qos class-default
         - mtu 9216
-      parents: policy-map type network-qos jumbo
+      parents: policy-map type network-qos jumbo\n mtu 9216
 
 
 # Configuration SW primaire
