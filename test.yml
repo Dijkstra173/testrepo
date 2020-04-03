@@ -1,4 +1,5 @@
 ---
+# Help : https://docs.ansible.com/ansible/latest/modules/network_maintained.html
 # Global Configuration
 - hosts: SW
   gather_facts: no
@@ -7,10 +8,6 @@
     - var.yml
  
   tasks: 
-  
-  - name: test Var
-    debug:
-      msg: "{{ loris }}"
   
   - name: Enable feature VPC
     nxos_feature:
@@ -42,7 +39,7 @@
     nxos_command:
       commands: copy running-config startup-config
 
-# Configuration SW primaire
+# Configuration SW Secondary
 - hosts: "{{ swsecondary }}"
   gather_facts: no
   vars_files:
