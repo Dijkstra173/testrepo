@@ -1,5 +1,5 @@
 ---
-- hosts: SW
+- hosts: *
   gather_facts: no
   
   vars_files:
@@ -16,7 +16,7 @@
       feature: vpc
       state: enabled
   
-  - name: Enable feature VPC
+  - name: Enable feature LACP
     nxos_feature:
       feature: lacp
       state: enabled
@@ -30,3 +30,7 @@
       pkl_src: 172.31.1.100
       peer_gw: false
       auto_recovery: true
+
+  - name: Wr Mem
+    nxos_command:
+      commands: copy running-config startup-config
