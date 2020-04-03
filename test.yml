@@ -38,9 +38,9 @@
 
    - name: Enable Jumbo 2/2
       nxos_config:
-      lines:
-        - service-policy type network-qos jumbo
-      parents: system qos     
+        lines:
+          - service-policy type network-qos jumbo
+        parents: system qos     
 
 
 # Configuration SW primaire
