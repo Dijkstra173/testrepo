@@ -53,6 +53,9 @@
         - "{{ int1P }}"
         - "{{ int2P }}"
 
+  - name: Wr Mem
+    nxos_command:
+      commands: copy running-config startup-config
 
 
 # Configuration SW Secondary
@@ -70,6 +73,14 @@
       pkl_src: "{{ swsecondary }}"
       peer_gw: false
       auto_recovery: true
+
+  - name: Setup Interface PortGroup PeerLink Sw Secondary
+    nxos_linkagg:
+      group: 100
+      mode: active
+      members:
+        - "{{ int1P }}"
+        - "{{ int2P }}"
 
   - name: Wr Mem
     nxos_command:
