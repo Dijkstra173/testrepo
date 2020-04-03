@@ -39,6 +39,13 @@
     nxos_command:
       commands: copy running-config startup-config
 
+  - name: Merge provided configuration with device configuration.
+  nxos_lag_interfaces:
+    config:
+      - name: port-channel99
+        members:
+          - member: Ethernet1/4
+    state: merged
 
 # Configuration SW Secondary
 - hosts: "{{ swsecondary }}"
