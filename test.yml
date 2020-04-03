@@ -41,7 +41,9 @@
         - name: port-channel100
           members:
             - member: Ethernet1/5
+              mode: active
             - member: Ethernet1/6
+              mode: active
 
 
   - name: Wr Mem
