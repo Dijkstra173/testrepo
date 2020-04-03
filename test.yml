@@ -45,7 +45,7 @@
         - name: port-channel100
           members:
             - members: Ethernet1/5
-
+      state: merge
 
 # Configuration SW Secondary
 - hosts: "{{ swsecondary }}"
