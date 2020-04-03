@@ -1,4 +1,3 @@
-loris: OK
 # Configuration IP SW
 swprimary: 172.31.1.100
 swsecondary: 172.31.1.101
@@ -9,4 +8,4 @@ int2P : Eth1/5
 
 #Interface PeerLink Sw Primaire
 int1S : Eth1/4
-int2S : Eth1/6
+int2S : Eth1/5

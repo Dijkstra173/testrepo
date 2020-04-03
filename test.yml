@@ -29,6 +29,14 @@
       portchannel: 100
       peer_link: true
 
+  - name: Enable Jumbo 1/2
+    nxos_config:
+      lines:
+        - class type network-qos class-default
+        - mtu 9216
+      parents: policy-map type network-qos jumbo
+
+
 # Configuration SW primaire
 - hosts: "{{ swprimary }}"
   gather_facts: no
@@ -79,8 +87,8 @@
       group: 100
       mode: active
       members:
-        - "{{ int1P }}"
-        - "{{ int2P }}"
+        - "{{ int1S }}"
+        - "{{ int2S }}"
 
   - name: Wr Mem
     nxos_command:
