@@ -38,8 +38,16 @@
   - name: Create aggregate of linkagg definitions
     nxos_linkagg:
       aggregate:
-        - { group: 3 }
-        - { group: 100, min_links: 3 }
+        - { group: 100 }
+  
+  - name: set link aggregation group to members
+    nxos_linkagg:
+      group: 10
+      mode: active
+      members:
+        - Ethernet1/5
+        - Ethernet1/6
+
 
 
 # Configuration SW Secondary
