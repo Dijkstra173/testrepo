@@ -1,5 +1,5 @@
 ---
-- hosts: 172.31.1.100
+- hosts: "{{ swprimary }}"
   gather_facts: no
   
   vars_files:
