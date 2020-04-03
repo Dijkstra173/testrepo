@@ -32,8 +32,10 @@
   - name: Enable Jumbo 1/2
     nxos_config:
       lines:
-        - class type network-qos class-default \n mtu 9216
-      parents: policy-map type network-qos jumbo
+        - mtu 9216
+      parents: 
+        - policy-map type network-qos jumbo
+        - class type network-qos class-default
 
 
 # Configuration SW primaire
