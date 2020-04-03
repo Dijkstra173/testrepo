@@ -39,11 +39,6 @@
     nxos_command:
       commands: copy running-config startup-config
 
-  - name: portconf
-    nxos_lag_interfaces:
-      config:
-
-
 
 # Configuration SW Secondary
 - hosts: "{{ swsecondary }}"
