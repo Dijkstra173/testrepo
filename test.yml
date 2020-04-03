@@ -1,5 +1,6 @@
 ---
-- hosts: "{{ swprimary }}"
+# Global Configuration
+- hosts: SW
   gather_facts: no
   
   vars_files:
@@ -21,13 +22,39 @@
       feature: lacp
       state: enabled
 
-  - name: VPC configuration
+# Configuration SW primaire
+- hosts: "{{ swprimary }}"
+  gather_facts: no
+  vars_files:
+    - var.yml
+ 
+  tasks: 
+  - name: VPC configuration Sw Primaire
     nxos_vpc:
       domain: 100
       role_priority: 1000
-      system_priority: 2000
-      pkl_dest: 192.168.100.4
-      pkl_src: 172.31.1.100
+      pkl_dest: "{{ swsecondary }}"
+      pkl_src: "{{ swprimary }}"
+      peer_gw: false
+      auto_recovery: true
+
+  - name: Wr Mem
+    nxos_command:
+      commands: copy running-config startup-config
+
+# Configuration SW primaire
+- hosts: "{{ swsecondary }}"
+  gather_facts: no
+  vars_files:
+    - var.yml
+ 
+  tasks: 
+  - name: VPC configuration Sw Secondary
+    nxos_vpc:
+      domain: 100
+      role_priority: 2000
+      pkl_dest: "{{ swprimary }}"
+      pkl_src: "{{ swsecondary }}"
       peer_gw: false
       auto_recovery: true
 
