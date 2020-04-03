@@ -39,8 +39,9 @@
     nxos_command:
       commands: copy running-config startup-config
 
-  - name: Configuration port
+  - name: portconf
     nxos_lag_interfaces:
+      config:
 
 
 
