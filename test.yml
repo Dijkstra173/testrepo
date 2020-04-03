@@ -39,6 +39,14 @@
     nxos_command:
       commands: copy running-config startup-config
 
+  - name: Configuration port
+    nxos_lag_interfaces:
+      config:
+        - name: port-channel100
+          members:
+            - members: Ethernet1/5
+
+
 # Configuration SW Secondary
 - hosts: "{{ swsecondary }}"
   gather_facts: no
