@@ -1,0 +1,3 @@
+  - name: Wr Mem
+    nxos_command:
+      commands: copy running-config startup-config
