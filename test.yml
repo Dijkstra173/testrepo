@@ -35,13 +35,12 @@
       peer_gw: false
       auto_recovery: true
 
-  - name: CreatePortGroup
+  - name: Create aggregate of linkagg definitions
     nxos_linkagg:
-      groupe: 100
-      mode: active
-      members:
-        - Eth1/5
-        - Eth1/6
+      aggregate:
+        - { group: 3 }
+        - { group: 100, min_links: 3 }
+
 
 # Configuration SW Secondary
 - hosts: "{{ swsecondary }}"
