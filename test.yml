@@ -19,6 +19,11 @@
       feature: lacp
       state: enabled
 
+  - name: Create Port-channell 
+    nxos_linkagg:
+      aggregate:
+        - { group: 100 }
+
 # Configuration SW primaire
 - hosts: "{{ swprimary }}"
   gather_facts: no
@@ -34,19 +39,14 @@
       pkl_src: "{{ swprimary }}"
       peer_gw: false
       auto_recovery: true
-
-  - name: Create aggregate of linkagg definitions
-    nxos_linkagg:
-      aggregate:
-        - { group: 100 }
   
-  - name: set link aggregation group to members
+  - name: Setup Interface PortGroup PeerLink Sw Primaire
     nxos_linkagg:
       group: 100
       mode: active
       members:
-        - Ethernet1/5
-        - Ethernet1/6
+        - "{{ int1P }}"
+        - "{{ int2P }}"
 
 
 
