@@ -35,7 +35,7 @@
       peer_gw: false
       auto_recovery: true
 
-  - name: Merge provided configuration with device configuration.
+  - name: Configuration PO
     nxos_lag_interfaces:
       config:
         - name: port-channel100
